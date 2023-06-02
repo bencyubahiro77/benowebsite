@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -26,13 +26,735 @@
 
 .App-link {
   color: #61dafb;
+} */
+
+/* --------------------------------------------------start of project--------------------------- */
+body{
+  margin: 0;
+}
+/* --------------------------------header---------------------------------------------- */
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f5f5f5;
+  height: 10vh;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  position: fixed;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo img {
+  width: 130px;
+  height: 130px;
+}
+
+.icons {
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.icon:hover{
+  background-color: red;
+}
+
+.menu {
+  display: flex;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: #555;
+}
+
+.active {
+  color: red;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #555;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -8px);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #f5f5f5;
+    width: 100%;
+    display: none;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active + .menu {
+    display: flex;
+    padding-bottom: 15px;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    padding: 10px;
+    align-items: left;
+  }
+
+  .menu li {
+    margin-right: 0;
+    margin-top: 20px;
   }
 }
+
+@media (max-width: 1024px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  .icon {
+    font-size: 16px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .logo {
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  .menu {
+    top: 66px;
+  }
+}
+/* ------------------------------------------------footer--------------------------------------- */
+footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around ;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.footer-icons :hover{
+  background-color: red;
+}
+
+.footer-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 18px;
+}
+
+.footer-links li {
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  footer {
+    display: block;
+  }
+  .footer-icons {
+   display: flex;
+  }
+
+  .footer-icon {
+    margin-bottom: 10px;
+  }
+  .footer-links{
+    display: flex;
+    padding-top: 0px;
+    justify-content: center;
+  }
+  .footer-links li{
+    margin-top: 5px;
+    
+  }
+}
+/* ------------------------------------------Regsiter------------------------------------ */
+
+.Register {
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.Rinfo {
+  width: 100%;
+}
+
+.Rinfo h1 {
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.Rinfo form {
+  width: 70%;
+  margin-left: 10%;
+}
+
+.Rinfo form input {
+  margin-bottom: 20px;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 2.5rem;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 30%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.Register img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+
+.already {
+  margin-left: 10%;
+}
+
+@media only screen and (max-width: 480px) {
+  .Register {
+    display: block;
+    margin-top: 25%;
+    margin-bottom: 28%;
+  }
+
+  .Register img {
+    display: none;
+  }
+
+  .Rinfo h1 {
+    font-size: 25px;
+  }
+}
+
+
+/* ---------------------------------------------homepage--------------------------------- */
+
+.homepic{
+  width: 100%;
+  height: 87vh;
+  background-color: #000;
+  color: whitesmoke;
+}
+.homepic p{
+  text-align: center;
+  /* padding-left: 50%; */
+  font: 1em sans-serif;
+  color: rgb(153, 37, 37);
+}
+.pic1{
+  padding-top: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pic1 button{
+  border: none;
+  border-bottom: 0px solid ;
+  width: 30vh;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.li {
+  text-decoration: none;
+  color: whitesmoke;
+}
+.pic1 h1{
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+.pic2{
+  display: flex;
+  justify-content: center;
+}
+.pic2 button{
+  background:none;
+  height: 5vh;
+  border: 2px solid green;
+  cursor: pointer;
+  display: block;
+  width: 20vh;
+  margin-left: 20px;
+}
+.pic2 button:hover{
+  background-color: green;
+  color: whitesmoke;
+}
+
+@media only screen and (max-width: 480px) {
+  .homepic{
+    height: 70vh;
+  }
+  .pic1{
+    padding-top: 40%;
+  }
+  .pic1 h1{
+    font-size: 30px;
+  }
+}
+
+/* --------------------------------------------About page------------------------------ */
+.about{
+  padding-bottom: 4%;
+}
+.profe{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 5%;
+}
+.profe img{
+  width: 60%;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.profe-t{
+  padding-top: 30px;
+  height: 45vh;
+  background-color:rgba(241,239,233,1);
+  position: absolute;
+  position: relative;
+  left: -8%;
+  box-sizing: border-box;
+  width: 60vh;
+}
+.profe-t p{
+  padding-left: 30px;
+}
+.profe-t h6 {
+ padding-left: 30px;
+}
+.profe-t h1{
+  padding-left: 30px;
+}
+.profe-t button{
+  height: 5vh;
+  width: 25vh;
+  float: right;
+  margin-right: 15px;
+  background-color: darkgreen;
+  border: none;
+  cursor: pointer;
+}
+.profe-t button a{
+  text-decoration: none;
+  color: white;
+}
+.profe-t button:hover{
+  background-color: green;
+}
+
+.div-with-image {
+  display: flex;
+  align-items: center;
+  padding-top: 5%;
+  margin: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.text-container {
+  width: 100%;
+  margin-right: 20px;
+  background-color: black;
+  color: whitesmoke;
+  height: 50.2vh;
+}
+
+.text-container p {
+  margin-bottom: 10px;
+  margin-left: 13%;
+}
+.text-container h1{
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .div-with-image{
+    display: block;
+  }
+  .image-container img{
+    width: 100%;
+    height: 100%;
+  }
+  .text-container{
+    height: 123vh;
+  }
+  .text-container p {
+    margin-right: 5%;
+    margin-bottom: 10px;
+  }
+  .image-container img{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  
+}
+
+@media only screen and (max-width: 768px) {
+    .profe {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+    }
+    .profe img {
+    width: 100%;
+    height: auto;
+    }
+    .profe-t {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    }
+
+  }
+  
+  @media only screen and (max-width: 480px) {
+  .profe {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8%;
+  }
+  .profe-t h1 {
+  font-size: 24px;
+  }
+  .profe-t h6 {
+  font-size: 16px;
+  }
+  .profe-t p {
+  font-size: 14px;
+  }
+  .aboutbtn {
+  height: 30px;
+  width: 120px;
+  }
+  }
+
+  /* -----------------------------------------------Contact------------------------------------ */
+  .contimg {
+    height: 30vh;
+    padding-top: 10%;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+  }
+  .contact2 h1{
+    font-size: 4rem;
+    color: whitesmoke;
+  }
+
+  .Cinfo{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 4%;
+  }
+  form {
+    
+    width: 50%;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  input[type="text"], input[type="email"], input[type="number"],  input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+  }
+  textarea{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    height: 12vh;
+    border-bottom: 2px solid black;
+  }
+  
+  input[type="submit"] {
+    background:none;
+    color: green;
+    padding: 10px 30px;
+    border: 2px solid green;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 20vh;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: green;
+    color: whitesmoke;
+  }
+
+  .contact-info{
+    padding-top: 5%;
+    align-items: center;
+  }
+  .contact-item{
+    padding-bottom: 10%;
+    display: flex;
+    align-items: center;
+  
+  }
+  .contact-icon{
+     margin-right: 10px;
+     font-size: 30px;
+  }
+  .contact-text{
+    font-size: 20px;
+  }
+  .contact3 h2{
+    text-align: center;
+    padding-bottom: 3%;
+  }
+  .error{
+    color: red;
+  }
+  
+  @media screen and (max-width: 768px) { 
+    .contimg {
+    height: 30vh;
+    padding-top: 20%;
+    }
+    .Cinfo{
+      display: grid;
+    }
+    .contact-info{
+      margin-top: 20%;
+    }
+    .contact2 h1 {
+    font-size: 3rem;
+    }
+    form {
+    width: 100%;
+    }
+    input[type="submit"] {
+    width: 50%;
+    }
+    .contact3 h2{
+        font-size: 20px;
+    }
+    }
+    
+    @media screen and (max-width: 480px) { 
+    .contimg {
+    height: 20vh;
+    padding-top: 30%;
+    }
+    form {
+      width: 100%;
+     }
+    .Cinfo{
+      display: grid;
+    }
+    .contact2 h1 {
+    font-size: 2rem;
+    }
+    .contact3 h2{
+        margin-top: 18%;
+    }
+    input[type="submit"] {
+    width: 70%;
+    }
+    }
+    /* ---------------------------------------------------Skills-------------------------------- */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding-top: 7%;
+    }
+    
+    .card {
+      width: 30%;
+      height: 200px;
+      background-color: #f5f5f5;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3%;
+      transition: transform 0.3s ease;
+      animation: cardAnimation 1s ease-in-out infinite alternate;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .card-button {
+      width: 100px;
+      height: 100px;
+      border: 2px solid darkgray;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-66%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-button::before {
+      content: '';
+      position: absolute;
+      bottom:  0;
+      left: 0;
+      width: 100%;
+      height: var(--border-progress);
+      background-color: black;
+    }
+    
+    .card-button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% - var(--border-progress));
+      background-color: #fff;
+      animation: shakeWater 1s infinite;
+    } 
+
+    @keyframes shakeWater {
+      0% {
+        transform: translateX(-9px) rotate(-9deg);
+      }
+      50% {
+        transform: translateX(9px) rotate(9deg);
+      }
+      100% {
+        transform: translateX(-9px) rotate(-9deg);
+      }
+    }
+
+    .card-icon {
+      font-size: 50px;
+      color: inherit;
+      position: relative;
+      z-index: 1;
+    }
+
+  @media screen and (max-width: 768px) { 
+    .card-container {
+      display: flex;
+      padding-top: 10%;
+    }
+  }
+  @media screen and (max-width: 480px) { 
+    .card-container {
+      display: block;
+      padding-top: 30%;
+      margin: 10px;
+    }
+    .card{
+      margin-bottom: 20%;
+      width: 100%;
+    }
+  }

@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+/* eslint-disable no-unused-vars */
+import React from 'react';
 import './App.css';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Header from './component/header';
+import Footer from './component/footer';
+import Contact from './pages/Contact';
+import Skills from './pages/Skills';
+// import Blog from './pages/Blog';
+import About from './pages/About';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
-function App() {
+const App = () => {
+  const location = useLocation();
+
+  const shouldShowHeaderAndFooter = location.pathname !== '/register' && location.pathname !== '/login' ;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {shouldShowHeaderAndFooter && <Header />}
+      <main>
+        <Routes>
+          <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/blog" element={<Blog />} />   */}
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </main>
+       <Footer />
+    </>
   );
-}
+};
 
 export default App;
