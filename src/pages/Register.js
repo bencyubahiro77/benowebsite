@@ -59,7 +59,7 @@ function Contact() {
     };
 
     try {
-      const response = await axios.post('https://benowebsite-bn.onrender.com/user/register', payload);
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/register`, payload);
 
       if (response.status === 201) {
         Swal.fire({

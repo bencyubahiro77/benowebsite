@@ -9,7 +9,7 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`https://benowebsite-bn.onrender.com/blog/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/blog/${id}`);
         const formattedDate = new Date(response.data.createdAt).toLocaleDateString('en-US', {
           day: 'numeric',
           month: 'long',

@@ -14,8 +14,8 @@ const Blog = () => {
     const fetchBlogs = async () => {
       try {
         const url = selectedCategory
-          ? `https://benowebsite-bn.onrender.com/blog?category=${selectedCategory}`
-          : 'https://benowebsite-bn.onrender.com/blog';
+          ? `${process.env.REACT_APP_BASE_URL}/blog?category=${selectedCategory}`
+          : `${process.env.REACT_APP_BASE_URL}/blog`;
         const response = await axios.get(url);
         setBlogs(response.data);
         setTotalPages(Math.ceil(response.data.length / 3));

@@ -42,7 +42,7 @@ function Contact() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put('https://benowebsite-bn.onrender.com/user/change-pass', payload, {
+      const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/user/change-pass`, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -45,7 +45,7 @@ const CreateBlogPage = () => {
       formData.append('image', coverPhoto);
   
       // eslint-disable-next-line no-unused-vars
-      const response = await axios.post('https://benowebsite-bn.onrender.com/blog', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}blog`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

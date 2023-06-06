@@ -21,7 +21,7 @@ function Contact() {
     const { email, password } = event.target.elements;
 
     try {
-      const response = await axios.post('https://benowebsite-bn.onrender.com/user/login', {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/login`, {
         email: email.value,
         password: password.value,
       });
