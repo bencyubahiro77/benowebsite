@@ -1,20 +1,79 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaTwitter, FaGithub, FaEnvelope, FaBars } from 'react-icons/fa';
-import logo from '../Documents/benologo-removebg.png'
+import Swal from 'sweetalert2';
+// import logo from '../Documents/benologo-removebg.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
+  const dropdownRef = useRef(null);
+  const token = localStorage.getItem('token');
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: 'Are you sure you want to logout?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Perform logout
+        localStorage.removeItem('token');
+        // Make API request to logout endpoint if necessary
+        // Example: axios.get('http://localhost:5000/user/logout')
+        // .then(() => {
+        //   // Logout successful, proceed with navigation
+        //   navigate('/');
+        // })
+        // .catch((error) => {
+        //   console.error(error);
+        // });
+
+        // Simulating logout without backend API request
+        Swal.fire({
+          title: 'Logged out successfully!',
+          icon: 'success',
+        }).then(() => {
+          navigate('/');
+        });
+      }
+    });
+  };
+
   return (
     <nav className="navbar">
       <div className="logo">
-      <img src={logo} alt=" " />
+        {/* <img src={logo} alt=" " /> */}
+        <h1>BENO</h1>
       </div>
       <div className="icons">
         <Link to="/twitter" className="icon">
@@ -61,7 +120,37 @@ const Navbar = () => {
             <Link to="/contact" className={`link ${location.pathname === '/contact' ? 'active' : ''}`}>
               Contact
             </Link>
-          </li>
+            </li>
+          {token && (
+            <li>
+              <div className="dropdown" ref={dropdownRef}>
+                <span className="dropdown-toggle" onClick={toggleDropdown}>
+                  Profile
+                </span>
+                <ul className={`dropdown-menu ${isDropdownOpen ? 'active' : ''}`}>
+                  <li>
+                  
+                    <Link to="/links" className="link" onClick={closeMenu}>
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/write" className="link" onClick={closeMenu}>
+                      Create Post
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="change-pass" className="link" onClick={closeMenu}>
+                      Change Password
+                    </Link>
+                  </li>
+                  <li className="link" onClick={handleLogout}>
+                      Logout
+                  </li>
+                </ul>
+              </div>
+            </li>
+          )}
         </ul>
       </div>
     </nav>
