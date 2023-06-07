@@ -69,6 +69,12 @@ const Navbar = () => {
     });
   };
 
+  const handleMenuItemClick = () => {
+    if (window.innerWidth <= 768) {
+      closeMenu();
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="logo">
@@ -92,35 +98,59 @@ const Navbar = () => {
       <div className={`menu ${isMenuOpen ? 'active' : ''}`}>
         <ul>
           <li>
-            <Link to="/" className={`link ${location.pathname === '/' ? 'active' : ''}`}>
+            <Link
+              to="/"
+              className={`link ${location.pathname === '/' ? 'active' : ''}`}
+              onClick={handleMenuItemClick}
+            >
               Home
             </Link>
           </li>
-          <li>
-            <Link to="/work" className={`link ${location.pathname === '/work' ? 'active' : ''}`}>
+          {/* <li>
+            <Link
+              to="/work"
+              className={`link ${location.pathname === '/work' ? 'active' : ''}`}
+              onClick={handleMenuItemClick}
+            >
               Work
             </Link>
-          </li>
+          </li> */}
           <li>
-            <Link to="/blog" className={`link ${location.pathname === '/blog' ? 'active' : ''}`}>
+            <Link
+              to="/blog"
+              className={`link ${location.pathname === '/blog' ? 'active' : ''}`}
+              onClick={handleMenuItemClick}
+            >
               Blog
             </Link>
           </li>
           <li>
-            <Link to="/skills" className={`link ${location.pathname === '/skills' ? 'active' : ''}`}>
+            <Link
+              to="/skills"
+              className={`link ${location.pathname === '/skills' ? 'active' : ''}`}
+              onClick={handleMenuItemClick}
+            >
               Skills
             </Link>
           </li>
           <li>
-            <Link to="/about" className={`link ${location.pathname === '/about' ? 'active' : ''}`}>
+            <Link
+              to="/about"
+              className={`link ${location.pathname === '/about' ? 'active' : ''}`}
+              onClick={handleMenuItemClick}
+            >
               About
             </Link>
           </li>
           <li>
-            <Link to="/contact" className={`link ${location.pathname === '/contact' ? 'active' : ''}`}>
+            <Link
+              to="/contact"
+              className={`link ${location.pathname === '/contact' ? 'active' : ''}`}
+              onClick={handleMenuItemClick}
+            >
               Contact
             </Link>
-            </li>
+          </li>
           {token && (
             <li>
               <div className="dropdown" ref={dropdownRef}>
@@ -129,23 +159,43 @@ const Navbar = () => {
                 </span>
                 <ul className={`dropdown-menu ${isDropdownOpen ? 'active' : ''}`}>
                   <li>
-                  
-                    <Link to="/links" className="link" onClick={closeMenu}>
+                    <Link
+                      to="/links"
+                      className="link"
+                      onClick={() => {
+                        handleMenuItemClick();
+                        closeMenu();
+                      }}
+                    >
                       Dashboard
                     </Link>
                   </li>
                   <li>
-                    <Link to="/write" className="link" onClick={closeMenu}>
+                    <Link
+                      to="/write"
+                      className="link"
+                      onClick={() => {
+                        handleMenuItemClick();
+                        closeMenu();
+                      }}
+                    >
                       Create Post
                     </Link>
                   </li>
                   <li>
-                    <Link to="change-pass" className="link" onClick={closeMenu}>
+                    <Link
+                      to="change-pass"
+                      className="link"
+                      onClick={() => {
+                        handleMenuItemClick();
+                        closeMenu();
+                      }}
+                    >
                       Change Password
                     </Link>
                   </li>
                   <li className="link" onClick={handleLogout}>
-                      Logout
+                    Logout
                   </li>
                 </ul>
               </div>

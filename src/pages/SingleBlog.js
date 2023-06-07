@@ -33,8 +33,6 @@ const SingleBlog = () => {
     <div className="single-blog">
       <img src={blog.image} alt=" " />
       <div className='bdetails'>
-        <h5>Author: {blog.fullname}</h5>
-        <h5>Created: {blog.createdAt}</h5>
       </div>
       <h2>{blog.title}</h2>
       <p>{blog.desc}</p>

@@ -62,41 +62,14 @@ const Blog = () => {
       </div>
 
       <div className='allblogs'>
-        <div className="blog-container">
-          {currentBlogs.map((blog) => (
-            <div className="blog" key={blog._id}>
-              <img src={blog.image} alt=" " />
-              <h2>{blog.title}</h2>
-              <p>{blog.desc.slice(0, 200)}...</p>
-              <div className='blogfooter'>
-                <Link to={`/blog/${blog._id}`}>
-                  Read More < FaArrowCircleRight className="icons" />
-                </Link>
-                <div className='blogfooterx'>
-                  <h4>{blog.fullname}</h4>
-                  <h4>{formatDate(blog.createdAt)}</h4>
-                </div>
-              </div>
-            </div>
-          ))}
-
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onNextPage={handleNextPage}
-            onPrevPage={handlePrevPage}
-          />
-        </div>
-
         <div className='blogside'>
-          <div className='category'>
-            <h2
-              className={selectedCategory === '' ? 'active' : ''}
-              onClick={() => handleCategoryFilter('')}
-            >
-              Category
-            </h2>
             <div className='btncategory'>
+              <h4
+                className={selectedCategory === '' ? 'active' : ''}
+                onClick={() => handleCategoryFilter('')}
+              >
+                All
+              </h4>
               <h4
                 className={selectedCategory === 'technology' ? 'active' : ''}
                 onClick={() => handleCategoryFilter('technology')}
@@ -122,11 +95,31 @@ const Blog = () => {
                 Others
               </h4>
             </div>
-          </div>
-             {/* <div className='recent blog'>
-            <h2>Recent Post</h2>
-          </div> */}
         </div>
+        <div className="blog-container">
+          {currentBlogs.map((blog) => (
+            <div className="blog" key={blog._id}>
+              <img src={blog.image} alt=" " />
+              <h2>{blog.title}</h2>
+              <p>{blog.desc.slice(0, 200)}...</p>
+              <div className='blogfooter'>
+                <Link to={`/blog/${blog._id}`}>
+                  Read more < FaArrowCircleRight className="icons" />
+                </Link>
+                <div className='blogfooterx'>
+                  <h4>{blog.fullname}</h4>
+                  <h4>{formatDate(blog.createdAt)}</h4>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onNextPage={handleNextPage}
+            onPrevPage={handlePrevPage}
+          />
       </div>
     </div>
   );
