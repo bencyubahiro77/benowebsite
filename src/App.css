@@ -868,44 +868,39 @@ footer {
   padding: 20px;
   padding-top: 8%;
   height: 80vh;
-
 }
 
-.create-blog-page  .form-group {
+.create-blog-page .form-group {
   margin-bottom: 20px;
   width: 120vh;
 }
 
-.create-blog-page  label {
+.create-blog-page label {
   display: block;
   margin-bottom: 5px;
 }
-.create-blog-page 
-input[type='text'],
-input[type='file'] {
+
+.create-blog-page input[type='text'],
+.create-blog-page input[type='file'] {
   width: 97%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.create-blog-page select{
+
+.create-blog-page select {
   width: 99%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.ReactQuill {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  height: 200px;
-  margin-top: 5px;
-}
-.blogEditor{
+.create-blog-page .blogEditor {
   height: 20vh;
-  margin-bottom: 10%;
+  z-index: 78;
+  margin-bottom: 5%;
   width: 100%;
+  overflow-y: auto; /* Added to enable vertical scrolling */
 }
 
 .create-blog-page button {
@@ -922,26 +917,26 @@ input[type='file'] {
   background-color: green;
 }
 
-@media screen and (max-width: 480px) { 
+@media screen and (max-width: 480px) {
   .create-blog-page {
     padding: 10px;
     padding-top: 20%;
   }
-  .create-blog-page  .form-group {
+  .create-blog-page .form-group {
     width: 100%;
   }
-  .blogEditor{
+  .blogEditor {
     padding-bottom: 15%;
   }
-  .create-blog-page 
-   input[type='text'],
-   input[type='file'] {
-   width: 94%;
+  .create-blog-page input[type='text'],
+  .create-blog-page input[type='file'] {
+    width: 94%;
   }
   .create-blog-page button {
     float: right;
   }
 }
+
 /* --------------------------------------get all blogs------------------------------------- */
 .blogfooter{
   display: flex;
