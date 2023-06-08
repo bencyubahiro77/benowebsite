@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {  FaArrowCircleRight } from 'react-icons/fa';
+import { FaArrowCircleRight } from 'react-icons/fa';
 import axios from 'axios';
 import Pagination from '../component/pagination';
 
@@ -9,9 +9,12 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     const fetchBlogs = async () => {
+      setIsLoading(true); // Start loading
+
       try {
         const url = selectedCategory
           ? `${process.env.REACT_APP_BASE_URL}/blog?category=${selectedCategory}`
@@ -22,6 +25,8 @@ const Blog = () => {
       } catch (error) {
         console.error(error);
       }
+
+      setIsLoading(false); // Stop loading
     };
 
     fetchBlogs();
@@ -54,7 +59,7 @@ const Blog = () => {
   };
 
   return (
-    <div>
+    <body>
       <div className="contimg">
         <div className="contact2">
           <h1>Blog</h1>
@@ -97,31 +102,35 @@ const Blog = () => {
             </div>
         </div>
         <div className="blog-container">
-          {currentBlogs.map((blog) => (
-            <div className="blog" key={blog._id}>
-              <img src={blog.image} alt=" " />
-              <h2>{blog.title}</h2>
-              <p>{blog.desc.slice(0, 200)}...</p>
-              <div className='blogfooter'>
-                <Link to={`/blog/${blog._id}`}>
-                  Read more < FaArrowCircleRight className="icons" />
-                </Link>
-                <div className='blogfooterx'>
-                  <h4>{blog.fullname}</h4>
-                  <h4>{formatDate(blog.createdAt)}</h4>
+          {isLoading ? ( 
+            <div className="loading-circle"></div>
+          ) : (
+            currentBlogs.map((blog) => (
+              <div className="blog" key={blog._id}>
+                <img src={blog.image} alt=" " />
+                <h2>{blog.title}</h2>
+                <p>{blog.desc.slice(0, 200)}...</p>
+                <div className='blogfooter'>
+                  <Link to={`/blog/${blog._id}`}>
+                    Read more <FaArrowCircleRight className="icons" />
+                  </Link>
+                  <div className='blogfooterx'>
+                    <h4>{blog.fullname}</h4>
+                    <h4>{formatDate(blog.createdAt)}</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
         <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onNextPage={handleNextPage}
-            onPrevPage={handlePrevPage}
-          />
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onNextPage={handleNextPage}
+          onPrevPage={handlePrevPage}
+        />
       </div>
-    </div>
+    </body>
   );
 };
 

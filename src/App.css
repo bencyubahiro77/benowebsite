@@ -34,6 +34,9 @@ hover:#05E790; */
 /* --------------------------------------------------start of project--------------------------- */
 body{
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
 }
 /* --------------------------------header---------------------------------------------- */
 
@@ -253,6 +256,7 @@ footer {
   padding: 20px;
   display: flex;
   justify-content: space-around ;
+  flex-shrink: 0;
 }
 
 .footer-icons {
@@ -1031,6 +1035,21 @@ input[type='file'] {
 .blog a:hover {
   color: #05E790;
 }
+.loading-circle {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 @media screen and (max-width: 1024px) {
   .blog-container {
@@ -1106,7 +1125,7 @@ input[type='file'] {
   line-height: 1.5;
   margin: 0 10% 10px 10%;
   font-family: Montserrat-Light;
-  font-size: 22px;
+  font-size: 18px;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.47;
