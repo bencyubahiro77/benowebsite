@@ -60,11 +60,11 @@ const Blog = () => {
 
   return (
     <body>
-      <div className="contimg">
+      {/* <div className="contimg">
         <div className="contact2">
           <h1>Blog</h1>
         </div>
-      </div>
+      </div> */}
 
       <div className='allblogs'>
         <div className='blogside'>
@@ -109,13 +109,13 @@ const Blog = () => {
               <div className="blog" key={blog._id}>
                 <img src={blog.image} alt=" " />
                 <h2>{blog.title}</h2>
-                <p>{blog.desc.slice(0, 200)}...</p>
+                <p>{blog.desc.slice(0, 120)}</p>
                 <div className='blogfooter'>
                   <Link to={`/blog/${blog._id}`}>
                     Read more <FaArrowCircleRight className="icons" />
                   </Link>
                   <div className='blogfooterx'>
-                    <h4>{blog.fullname}</h4>
+                    {/* <h4>{blog.fullname}</h4> */}
                     <h4>{formatDate(blog.createdAt)}</h4>
                   </div>
                 </div>

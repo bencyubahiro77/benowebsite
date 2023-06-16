@@ -7,11 +7,11 @@ const Skills = () => {
 
   return (
     <body>
-      <div className="contimg">
+      {/* <div className="contimg">
         <div className="contact2">
           <h1>My Skills</h1>
         </div>
-      </div>
+      </div> */}
 
       <div className="card-container">
         <div className="card">

@@ -120,12 +120,6 @@ function Contact() {
 
   return (
     <body>
-      <div className="contimg">
-        <div className="contact2">
-          <h1>CONTACT ME</h1>
-        </div>
-      </div>
-
       <div className="contact3">
         <h2>Feel Free to Chat with me.</h2>
         <div className='Cinfo'>

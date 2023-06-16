@@ -10,11 +10,11 @@ const About = () => {
 
   return (
     <body>
-      <div className="contimg">
+      {/* <div className="contimg">
          <div className="contact2">
           <h1>ABOUT ME</h1>
         </div>
-     </div>
+     </div> */}
     <div className="about">        
         <div className="profe">
            <img src= {pic2} alt=" " />

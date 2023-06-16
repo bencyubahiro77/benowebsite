@@ -48,17 +48,6 @@ const Navbar = () => {
       if (result.isConfirmed) {
         // Perform logout
         localStorage.removeItem('token');
-        // Make API request to logout endpoint if necessary
-        // Example: axios.get('http://localhost:5000/user/logout')
-        // .then(() => {
-        //   // Logout successful, proceed with navigation
-        //   navigate('/');
-        // })
-        // .catch((error) => {
-        //   console.error(error);
-        // });
-
-        // Simulating logout without backend API request
         Swal.fire({
           title: 'Logged out successfully!',
           icon: 'success',
