@@ -15,7 +15,7 @@ import SingleBlog from './pages/SingleBlog'
 import Write from './pages/CreateBlog';
 import ChangePassword from './pages/ChangePassword';
 import PrivateRoute from './component/PrivateRoute';
-import Links from './pages/dashboard/links';
+import Blogs from './pages/dashboard/Blog';
 
 
 const App = () => {
@@ -32,9 +32,9 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />  
 
           <Route  element={<PrivateRoute />}>
-               <Route path="/write" element={<Write />} />
+               <Route path="/create" element={<Write />} />
                <Route path="/change-pass" element={<ChangePassword />} />
-               <Route path="/links" element={<Links />} />
+               <Route path="/admin" element={<Blogs />} />
           </Route>
 
           <Route path="/about" element={<About />} />

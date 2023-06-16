@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   faBars,
-  faChartSimple,
+//   faChartSimple,
   faTimes,
   faTruck,
-  faUser,
+//   faUser,
 
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,22 +35,23 @@ function Links() {
       <ul
         className={`menu-list ${showMenu ? 'show' : ''}`}
         data-testid="menu-list"
+        style={{border:"none"}}
       >
-        <li>
-          <NavLink to="/home">
+        {/* <li>
+          <NavLink to="">
             <FontAwesomeIcon icon={faChartSimple} /> Dashboard
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/product">
+        </li> */}
+        <li> 
+          <NavLink to="/admin">
             <FontAwesomeIcon icon={faTruck} /> Blogs
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/admin/user">
+        {/* <li>
+          <NavLink to="#">
             <FontAwesomeIcon icon={faUser} /> Users
           </NavLink>
-        </li>
+        </li> */}
 
       </ul>
     </div>

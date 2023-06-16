@@ -144,12 +144,12 @@ const Navbar = () => {
             <li>
               <div className="dropdown" ref={dropdownRef}>
                 <span className="dropdown-toggle" onClick={toggleDropdown}>
-                  Profile
+                  Manage
                 </span>
                 <ul className={`dropdown-menu ${isDropdownOpen ? 'active' : ''}`}>
                   <li>
                     <Link
-                      to="/links"
+                      to="/admin"
                       className="link"
                       onClick={() => {
                         handleMenuItemClick();
@@ -161,7 +161,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/write"
+                      to="/create"
                       className="link"
                       onClick={() => {
                         handleMenuItemClick();
@@ -183,7 +183,7 @@ const Navbar = () => {
                       Change Password
                     </Link>
                   </li>
-                  <li className="link" onClick={handleLogout}>
+                  <li className="link" onClick={handleLogout} style={{color: "#fff"}}>
                     Logout
                   </li>
                 </ul>
