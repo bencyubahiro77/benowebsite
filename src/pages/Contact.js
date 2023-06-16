@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import emailjs from 'emailjs-com';
+import axios from 'axios';
 import { FiPhone, FiMail, FiHome } from 'react-icons/fi';
 import Swal from 'sweetalert2';
 
@@ -8,33 +8,29 @@ function Contact() {
   const [isSending, setIsSending] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const sendEmail = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validateForm()) {
       return;
     }
+
+    const formData = new FormData(form.current);
+
     setIsSending(true);
 
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAIL_SERVICE_ID,
-        process.env.REACT_APP_EMAIL_TEMPLATE_ID,
-        form.current,
-        process.env.REACT_APP_EMAIL_USER_ID
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          form.current.reset();
-          showSuccessMessage();
-          setIsSending(false);
-        },
-        (error) => {
-          console.log(error.text);
-          showErrorMessage();
-          setIsSending(false);
-        }
-      );
+    try {
+      // Send the form data to the backend
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/contact`,formData);
+
+      setIsSending(false);
+      form.current.reset();
+      showSuccessMessage();
+    } catch (error) {
+      console.error(error);
+      setIsSending(false);
+      showErrorMessage();
+    }
   };
 
   const validateForm = () => {
@@ -123,7 +119,7 @@ function Contact() {
       <div className="contact3">
         <h2>Feel Free to Chat with me.</h2>
         <div className='Cinfo'>
-          <form ref={form} onSubmit={sendEmail}>
+          <form ref={form} onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
             <input type="text" id="name" name="name" onChange={handleNameChange} />
             {errors.name && <p className="error">{errors.name}</p>}
