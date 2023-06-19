@@ -3,7 +3,7 @@
 import React from 'react';
 import pic1 from '../images/istockphoto-1252766024-612x612.jpg';
 import pic2 from '../images/benjamincrop.png'
-import Pdf from '../Documents/resume.pdf';
+import Pdf from '../Documents/MyResume.pdf';
 
 
 const About = () => {
