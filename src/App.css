@@ -84,7 +84,7 @@ body{
 }
 
 .icon:hover {
-  background-color: #027147;;
+  background-color: #5A1627;
 }
 
 .menu {
@@ -112,7 +112,7 @@ li {
   font-family: Montserrat-Regular;
 }
 li:hover{
-  color: #027147;;
+  color: #904753;
 }
 
 .link {
@@ -122,7 +122,7 @@ li:hover{
 }
 
 .active {
-  color: #05E790;
+  color: #5A1627;
 }
 
 .hamburger {
@@ -414,87 +414,141 @@ footer {
   }
 }
 
-
 /* ---------------------------------------------homepage--------------------------------- */
 
 .homepic {
   width: 100%;
   height: 81vh;
-  background-image: url(./images/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-.jpg);
-  background-size: contain;
-  background-position: center;
-  color: #052f5f;
-  display: grid;
-  place-items: center;
-
+  color: #052F5F;
 }
-
-.homepic p{
+ .homepic h2{
   text-align: center;
-  /* padding-left: 50%; */
-  font: 1em sans-serif;
-  color: #027147;
-  font-size: 45px;
-}
-.pic1{
-  padding-top: 10%;
+  font-size: 50px;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+  font-weight: 700;
+ }
+
+ .home-sec-2{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(31%, 1fr));
+  margin-right: 40px;
+  margin-left: 40px;
+  position: relative;
+  height: 50%;
+ }
+ 
+ .home-sec-2::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(to left, transparent 0%, #052f5f 50%, transparent 100%);
+ }
+ .home-sec-2 img{
+  width: 100%;
+ }
+ .home-about {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
 }
-.pic1 button{
-  border: none;
-  border-bottom: 0px solid ;
-  width: 30vh;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.li {
-  text-decoration: none;
-  color: whitesmoke;
-}
-.pic1 h1{
-  font-size: 60px;
-  margin-bottom: 20px;
+.home-about p{
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-family: sans-serif;
 }
 
-.pic2{
-  display: flex;
-  justify-content: center;
-  margin-top: -5%;
- 
+.home-icon{
+  font-size: 100px;
 }
-.pic2 button{
-  background:none;
+.home-about button{
   height: 5vh;
-  border: 2px solid #027147;
+  width: 25vh;
+  float: right;
+  margin-right: 15px;
+  background-color: #5A1627;
+  border: none;
   cursor: pointer;
-  display: block;
-  width: 20vh;
-  margin-left: 20px;
-  background-color: #027147;
 }
-.pic2 button:hover{
-  background-color: #05E790;
-  color: whitesmoke;
-  border: 2px solid #05E790;
+.home-about button a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+}
+.home-about button:hover{
+  background-color: #904753;
+}
+.home-footer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 5%;
+}
+
+.home-footer h3 {
+  font-size: 30px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+}
+.home-footer .highlight {
+  font-size: 20px;
+}
+
+.home-footer h3:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -65px; 
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, #052f5f 50%, transparent 100%);
 }
 
 @media only screen and (max-width: 480px) {
   .homepic{
-    height: 70vh;
-    background-size:cover;
+    height: 100%;
+    width: 100%;
+    margin-top: 5%;
   }
-  .pic1{
-    padding-top: 50%;
+  .homepic h2{
+    font-size: 25px;
+    display: none;
+  }
+  .home-sec-2{
+    display: block;
+  }
+  .home-sec-2::after{
+    bottom: -25px;
+    width: 100%;
+  }
+  .home-about p{
+    font-size: 12.5px;
+  }
+  .home-icon{
+    font-size: 50px;
+  }
+  .home-footer{
     display: grid;
   }
-  .pic1 h1{
-    font-size: 25px;
-    text-align: center;
+  .home-footer h3 {
+    font-size: 15px;
   }
-  .pic1 button{
-    width: 40vh;
+  .home-footer h3:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(to left, transparent 0%, #052f5f 50%, transparent 100%);
   }
 }
 
@@ -516,7 +570,7 @@ footer {
 .profe-t{
   padding-top: 30px;
   height: 54vh;
-  background-color:#027147;
+  background-color:#5A1627;
   position: absolute;
   position: relative;
   left: -8%;
@@ -528,6 +582,7 @@ footer {
   padding-left: 30px;
   line-height: 1.5;
   letter-spacing: 2px;
+  font-family: sans-serif;
 }
 .profe-t h6 {
  padding-left: 30px;
@@ -706,19 +761,20 @@ footer {
   
   input[type="submit"] {
     background:none;
-    color: #052f5f;
+    color: #5A1627;
     padding: 10px 30px;
-    border: 2px solid #052f5f;
+    border: 2px solid #5A1627;
     cursor: pointer;
     display: block;
     margin: 0 auto;
     width: 20vh;
     margin-top: 4%;
     border-radius: 20px;
+    font-family: sans-serif;
   }
   
   input[type="submit"]:hover {
-    background-color: #052f5f;
+    background-color: #5A1627;
     color: #fff;
   }
 
@@ -740,12 +796,16 @@ footer {
   .contact-text{
     font-size: 20px;
     color: #052f5f;
+    font-family: sans-serif;
+    line-height: 1.5;
+    letter-spacing: 2px;
   }
   .contact3 h2{
     text-align: center;
     padding-bottom: 3%;
     color: #052f5f;
     font-size: 35px;
+    font-family: sans-serif;
   }
   .error{
     color: red;
@@ -934,7 +994,7 @@ footer {
   z-index: 78;
   margin-bottom: 5%;
   width: 100%;
-  overflow-y: auto; /* Added to enable vertical scrolling */
+  overflow-y: auto; 
 }
 
 .create-blog-page button {
@@ -982,7 +1042,7 @@ footer {
 }
 .blogfooterx h4{
   padding-right: 20px;
-  color:#6c757d;
+  color:#727687;
   font: bold;
 }
 .blogside{
@@ -1003,13 +1063,13 @@ footer {
 }
 
 .btncategory .active{
-  color: #05E790;
+  color: #5A1627;
 }
 
 .blog-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(31%, 1fr));
-  grid-gap: 20px;
+  grid-gap: 10px;
   justify-items: center;
   margin: 20px;
 }
@@ -1018,11 +1078,11 @@ footer {
   background-color: #fff;
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
   text-align: center;
-  height: 60vh;
-  width: 55vh;
+  height: 80%;
+  width: 52vh;
   transition: transform 0.3s ease;
   animation: cardAnimation 1s ease-in-out infinite alternate;
-  border-radius: 10px;
+  border-radius: 20px 20px 20px 20px;
 }
 .blog:hover {
   transform: scale(1.05);
@@ -1031,28 +1091,32 @@ footer {
 .blog img {
   width: 100%;
   height: 60%;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .blog h2 {
   margin-top: 10px;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   color: #052f5f;
+  font-family: sans-serif;
 }
 
 .blog p {
   margin-top: 10px;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.3;
   text-align: justify;
   padding: 0 20px ;
+  color:#727687;
+  font-family: sans-serif;
 }
 
 .blog a {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  color: #052f5f;
+  color: #5A1627;
   text-decoration: none;
   display: flex ;
 }
@@ -1117,7 +1181,7 @@ footer {
     grid-gap: 20px;
   }
   .blog{
-    height: 90%;
+    height: 95%;
     margin-bottom: 10%;
   }
   .blog img {
@@ -1152,13 +1216,13 @@ footer {
 .single-blog p {
   line-height: 1.5;
   margin: 0 10% 10px 10%;
-  font-family: Montserrat-Light;
+  font-family: sans-serif;
   font-size: 18px;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.47;
   letter-spacing: normal;
-  color: #767676;
+  color: #727687;
 }
 @media only screen and (max-width: 480px) {
   .single-blog {

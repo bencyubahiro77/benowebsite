@@ -15,7 +15,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="footer-text">
-        <p>Copyright &copy; 2023 BENO | All rights reserved</p>
+        <p> &copy; 2023 BENO | All rights reserved</p>
       </div>
       <ul className="footer-links">
             <li><Link to="/work" className="link" style={{color:"#fff"}}>Work</Link></li>
