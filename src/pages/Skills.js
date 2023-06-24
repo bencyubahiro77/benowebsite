@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHtml5, FaCss3Alt, FaFigma, FaReact, FaNodeJs } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaFigma, FaReact, FaNodeJs, FaJs } from 'react-icons/fa';
 import { SiMongodb } from 'react-icons/si';
 
 const Skills = () => {
@@ -29,6 +29,15 @@ const Skills = () => {
           </button>
           <div className="card-content">
             <h2>CSS</h2>
+          </div>
+        </div>
+
+        <div className="card">
+          <button className="card-button" style={{ '--border-progress': `${percentages[3]}%` }}>
+            <FaJs className="card-icon" style={{ color: 'yellow' }} />
+          </button>
+          <div className="card-content">
+            <h2>JavaScript</h2>
           </div>
         </div>
 
