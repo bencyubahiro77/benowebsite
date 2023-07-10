@@ -1110,6 +1110,8 @@ footer {
   padding: 0 20px ;
   color:#727687;
   font-family: sans-serif;
+  max-height: 5em;
+  overflow: hidden;
 }
 
 .blog a {

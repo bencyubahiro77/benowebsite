@@ -9,7 +9,7 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -58,61 +58,66 @@ const Blog = () => {
     });
   };
 
+  const removeHtmlTags = (html) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
+  };
+
+  const extractFirstText = (content) => {
+    const strippedContent = content.replace(/<[^>]+>/g, '');
+    const firstText = strippedContent.trim().split('\n')[0];
+    return firstText;
+  };
+
   return (
     <body>
-      {/* <div className="contimg">
-        <div className="contact2">
-          <h1>Blog</h1>
-        </div>
-      </div> */}
-
       <div className='allblogs'>
         <div className='blogside'>
-            <div className='btncategory'>
-              <h4
-                className={selectedCategory === '' ? 'active' : ''}
-                onClick={() => handleCategoryFilter('')}
-              >
-                All
-              </h4>
-              <h4
-                className={selectedCategory === 'technology' ? 'active' : ''}
-                onClick={() => handleCategoryFilter('technology')}
-              >
-                Technology
-              </h4>
-              <h4
-                className={selectedCategory === 'coding' ? 'active' : ''}
-                onClick={() => handleCategoryFilter('coding')}
-              >
-                Coding
-              </h4>
-              <h4
-                className={selectedCategory === 'sport' ? 'active' : ''}
-                onClick={() => handleCategoryFilter('sport')}
-              >
-                Sports
-              </h4>
-              <h4
-                className={selectedCategory === 'others' ? 'active' : ''}
-                onClick={() => handleCategoryFilter('others')}
-              >
-                Others
-              </h4>
-            </div>
+          <div className='btncategory'>
+            <h4
+              className={selectedCategory === '' ? 'active' : ''}
+              onClick={() => handleCategoryFilter('')}
+            >
+              All
+            </h4>
+            <h4
+              className={selectedCategory === 'technology' ? 'active' : ''}
+              onClick={() => handleCategoryFilter('technology')}
+            >
+              Technology
+            </h4>
+            <h4
+              className={selectedCategory === 'coding' ? 'active' : ''}
+              onClick={() => handleCategoryFilter('coding')}
+            >
+              Coding
+            </h4>
+            <h4
+              className={selectedCategory === 'sport' ? 'active' : ''}
+              onClick={() => handleCategoryFilter('sport')}
+            >
+              Sports
+            </h4>
+            <h4
+              className={selectedCategory === 'others' ? 'active' : ''}
+              onClick={() => handleCategoryFilter('others')}
+            >
+              Others
+            </h4>
+          </div>
         </div>
-        <div className="blog-container">
-          {isLoading ? ( 
-            <div className="loading-circle"></div>
+        <div className='blog-container'>
+          {isLoading ? (
+            <div className='loading-circle'></div>
           ) : (
             currentBlogs.map((blog) => (
-              <div className="blog" key={blog._id}>
-                <img src={blog.image} alt=" " />
+              <div className='blog' key={blog._id}>
+                <img src={blog.image} alt=' ' />
                 <h2>{blog.title}</h2>
-                <p>{blog.desc.slice(0, 120)}</p>
+                <p>{removeHtmlTags(extractFirstText(blog.desc))}</p>
                 <div className='blogfooter'>
                   <Link to={`/blog/${blog._id}`}>
-                    Read more <FaArrowCircleRight className="icons" />
+                    Read more <FaArrowCircleRight className='icons' />
                   </Link>
                   <div className='blogfooterx'>
                     {/* <h4>{blog.fullname}</h4> */}

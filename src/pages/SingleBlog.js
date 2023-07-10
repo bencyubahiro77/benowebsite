@@ -36,14 +36,19 @@ const SingleBlog = () => {
     return <div>Loading...</div>;
   }
 
+  const createMarkup = (content) => {
+    return { __html: content };
+  };
+
   return (
     <body>
       <div className="single-blog">
+        <h2>{blog.title}</h2>
         <img src={blog.image} alt=" " />
         <div className='bdetails'>
         </div>
-        <h2>{blog.title}</h2>
-        <p>{blog.desc}</p>
+       
+        <p dangerouslySetInnerHTML={createMarkup(blog.desc)}></p>
       </div>
     </body>
   );
